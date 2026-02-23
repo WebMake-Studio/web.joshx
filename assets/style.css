@@ -334,11 +334,89 @@ footer span {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  header { width: calc(100% - 28px); padding: 10px 16px; gap: 12px; top: 10px; }
-  header h1 { display: none; }
-  nav a { font-size: 11px; padding: 6px 10px; letter-spacing: 1px; }
-  .hero-title { font-size: 50px; letter-spacing: 5px; }
+/* ════════════════════════════════════════════
+   ── RESPONSIVE ──
+   ════════════════════════════════════════════ */
+
+/* ── Tablette ── */
+@media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
+  .card-grid    { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+
+/* ── Mobile large (≤ 640px) ── */
+@media (max-width: 640px) {
+
+  /* Header : pill compact centré, logo visible */
+  header {
+    top: 10px;
+    width: calc(100% - 24px);
+    padding: 10px 14px;
+    gap: 0;
+    border-radius: 50px;
+    justify-content: space-between;
+  }
+  header h1 {
+    display: block; /* on réaffiche le logo */
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+  nav { gap: 2px; }
+  nav a {
+    font-size: 10px;
+    padding: 6px 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Page wrapper : espace sous le header */
+  .page-wrapper { padding-top: 70px; }
+
+  /* Hero */
+  .hero          { padding: 20px 16px 36px; }
+  .hero-sm       { padding: 20px 16px 20px; }
+  .hero-avatar   { width: 90px; height: 90px; margin-bottom: 18px; }
+  .hero-title    { font-size: clamp(36px, 11vw, 56px); letter-spacing: 4px; }
+  .hero-title-sm { font-size: clamp(28px, 9vw, 44px); }
+  .hero-sub      { font-size: 10px; letter-spacing: 4px; }
+  .hero-handle   { font-size: 12px; letter-spacing: 2px; }
+  .hero-desc     { font-size: 14px; line-height: 1.75; margin-bottom: 28px; }
+  .hero-buttons  { flex-direction: column; width: 100%; max-width: 320px; gap: 10px; }
+
+  /* Buttons pleine largeur sur mobile */
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 12px;
+  }
+
+  /* Section */
+  .section { padding: 36px 16px; }
+  .section-title { font-size: 22px; letter-spacing: 2px; }
+
+  /* Cards : une colonne */
+  .card-grid { grid-template-columns: 1fr; gap: 12px; }
+  .card       { padding: 22px; }
+
+  /* Social items */
+  .social-item  { padding: 16px 18px; gap: 14px; }
+  /* Désactive le translateX sur mobile (déborde) */
+  .social-item:hover { transform: none; }
+  .social-name  { font-size: 15px; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 16px; }
+  .form-card    { padding: 22px 18px; }
+
+  /* Footer */
+  footer { font-size: 10px; padding: 20px 16px; letter-spacing: 2px; }
+}
+
+/* ── Mobile très petit (≤ 380px) ── */
+@media (max-width: 380px) {
+  header h1  { display: none; }       /* masque logo si vraiment à l'étroit */
+  nav a      { font-size: 9px; padding: 5px 8px; }
+  .hero-title { font-size: 32px; letter-spacing: 2px; }
+  .card       { padding: 18px; }
+  .form-card  { padding: 16px 14px; }
 }
